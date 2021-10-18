@@ -15,14 +15,16 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import * as vis from 'vis';
-import adalContext from '../helpers/adalConfig';
+//import adalContext from '../helpers/adalConfig';
+import UserService from '../helpers/UserService';
 
 @observer
 export default class ConnectorOverview extends React.Component {
   private network: any;
 
   componentDidMount() {
-    const company = adalContext.getDomain(adalContext.getUsername()) || 'xAMPLcorp';
+    //const company = adalContext.getDomain(adalContext.getUsername()) || 'xAMPLcorp';
+    const company = UserService.getDomain() || 'xAMPLcorp';
     const nodes = [
       { id: 1, label: 'Catena-X PartChain\nconnector', x: -300, y: -300, color: '#969696', margin: 20},
       { id: 2, label: 'SAP Material Traceability\nconnector', x: 0, y: 300, color: '#969696', margin: 20 },

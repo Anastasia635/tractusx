@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export const x = 0;
+/*
 import { AdalConfig, adalGetToken, AuthenticationContext, withAdalLogin } from 'react-adal';
 
 // Endpoint URL
@@ -222,3 +224,4 @@ class AdalContext {
 
 const adalContext: AdalContext = new AdalContext();
 export default adalContext;
+*/

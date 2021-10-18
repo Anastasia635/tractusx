@@ -13,7 +13,8 @@
 // limitations under the License.
 
 import { OrganizationalDetails } from '../data/organizationdetails';
-import adalContext from './adalConfig';
+//import adalContext from '../../helpers/adalConfig';
+import UserService from './UserService';
 
 export function readTextFile(file: File): Promise<string> {
   const promise = new Promise<string>((resolve, reject) => {
@@ -200,7 +201,8 @@ const map = [{ oneId: 'Partner_00001_BOSCH', company: 'Bosch', domain: 'Bosch' }
 ];
 
 export function mapOneId(username: string) {
-  const domain = adalContext.getDomain(username);
+  //const domain = adalContext.getDomain(username);
+  const domain = UserService.getDomain();
   const records = map.filter((m) => m.domain === domain);
   if (records.length === 1) {
     return records[0].oneId;

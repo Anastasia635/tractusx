@@ -25,7 +25,7 @@ import Registration from './components/registration/register';
 import VerifyCompany from './components/registration/verifycompany';
 import Registrationoneid from './components/registrationoneid';
 import Emailregister from './components/emailregister';
-import { withAdalLoginApi } from './helpers/adalConfig';
+//import { withAdalLoginApi } from './helpers/adalConfig';
 import Loading from './components/loading';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
@@ -48,9 +48,12 @@ export default class App extends React.Component {
   }
 
   public render() {
-    const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
-    const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
-    const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    //const ProtectedHome = withAdalLoginApi(Home, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    //const ProtectedUpload1 = withAdalLoginApi(DataUpload, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    //const ProtectedUpload2 = withAdalLoginApi(DataUpload2, () => <Loading/>, () => <div>Application timeout. Please refresh your browser (F5)</div>);
+    const ProtectedHome = Home;
+    const ProtectedUpload1 = DataUpload;
+    const ProtectedUpload2 = DataUpload2;
     return (
       <Router history={history}>
         <Switch>

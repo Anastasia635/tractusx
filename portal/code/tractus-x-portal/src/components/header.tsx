@@ -15,7 +15,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import adalContext from '../helpers/adalConfig';
+//import adalContext from '../helpers/adalConfig';
+import UserService from '../helpers/UserService';
 import { Icon, Pivot, PivotItem } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -37,8 +38,10 @@ class Header extends React.Component<IProp> {
   @observable isAdmin = false;
 
   public async componentDidMount() {
-    this.username = adalContext.getFullName();
-    this.initials = adalContext.getInitials(this.username);
+    //this.username = adalContext.getFullName();
+    //this.initials = adalContext.getInitials(this.username);
+    this.username = UserService.getUsername();
+    this.initials = UserService.getInitials();
     AppState.state.isAdmin = true;
 
     //Removed beacuse of login loop  
@@ -72,8 +75,10 @@ class Header extends React.Component<IProp> {
   }
 
   private userClick() {
-    const token = adalContext.getCachedToken();
+    //const token = adalContext.getCachedToken();
+    const token = UserService.getToken();
     console.log(token);
+    UserService.doLogout();
   }
 
   private onBoardingClick() {
@@ -107,7 +112,7 @@ class Header extends React.Component<IProp> {
         <div className='df fdc mr50'>
           <span className='fs14'>{this.username}</span>
           <div className='df'>
-            <span className='fs14'>{adalContext.getDomain(adalContext.getUsername())}</span>
+            <span className='fs14'>{UserService.getDomain()/*adalContext.getDomain(adalContext.getUsername())*/}</span>
             {this.isAdmin && <span className='ml5 fs14'>(Admin)</span>}
           </div>
         </div>
