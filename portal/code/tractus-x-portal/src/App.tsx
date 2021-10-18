@@ -29,6 +29,7 @@ import { withAdalLoginApi } from './helpers/adalConfig';
 import Loading from './components/loading';
 import { AppState } from './stores/appstate';
 import Login from './components/login';
+import CompRegistration from './components/compRegistration';
 
 const history = createBrowserHistory();
 
@@ -64,6 +65,7 @@ export default class App extends React.Component {
           <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props}/>} />
           <Route path='/emailregister' component={(props) => <Emailregister {...props}/>} />
           <Route path='/login' component={(props) => <Login {...props}/>} />
+          <Route path='/compregistration' component={(props) => <CompRegistration {...props}/>} />
         </Switch>
       </Router>
     );
