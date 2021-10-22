@@ -1,0 +1,18 @@
+{
+  "name": "catenax-keycloak-theme",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn run open",
+    "open": "concurrently \"http-server -a localhost -p 3000\" \"open http://localhost:3000/\""
+  },
+  "devDependencies": {
+    "@patternfly/react-core": "^4.162.3",
+    "http-server": "^14.0.0",
+    "patternfly": "^3.59.5"
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  }
+}
