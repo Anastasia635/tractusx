@@ -1,6 +1,6 @@
-### Catena-X KeyCloak login theme
+### Catena-X Keycloak login theme
 
-Customize the default KeyCloak Login dialog to match the Catena-X style.
+Customize the default Keycloak Login dialog to match the Catena-X style.
 Only modify the files under ./login/
 
 Run test server
