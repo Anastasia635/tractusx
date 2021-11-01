@@ -8,7 +8,6 @@ using CatenaX.NetworkServices.Mailing.Template;
 using CatenaX.NetworkServices.Invitation.Identity;
 using CatenaX.NetworkServices.Invitation.Identity.Identity;
 using CatenaX.NetworkServices.Invitation.Service.BusinessLogic;
-using CatenaX.NetworkServices.Invitation.Service.Mail;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +32,7 @@ namespace CatenaX.NetworkServices.Invitation.Service
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master")));
+            services.AddTransient<IIdentityManager>(x => new KeycloakIdentityManager(new Keycloak.Net.KeycloakClient(Configuration.GetValue<string>("KeyCloakConnectionString"), Configuration.GetValue<string>("KeyCloakUser"), Configuration.GetValue<string>("KeyCloakUserPassword"), authRealm: "master"), Configuration.GetValue<string>("BasePortalAddress")));
             services.AddTransient<IInvitationBusinessLogic,InvitationBusinessLogic>();
             services.AddTransient<IMailingService, MailingService>();
             services.AddTransient<ISendMail, SendMail>()

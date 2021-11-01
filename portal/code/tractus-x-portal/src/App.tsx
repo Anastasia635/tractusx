@@ -62,7 +62,7 @@ export default class App extends React.Component {
           <Route path='/verifyoneid' component={(props) => <VerifyCompany {...props}/>} />
           <Route path='/dataupload' render={()=><ProtectedUpload1/>} />
           <Route path='/dataupload2' render={()=><ProtectedUpload2/>} />
-          <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props}/>} />
+          <Route path='/invite' component={(props) => <Registrationoneid {...props}/>} />
           <Route path='/emailregister' component={(props) => <Emailregister {...props}/>} />
           <Route path='/login' component={(props) => <Login {...props}/>} />
           <Route path='/compregistration' component={(props) => <CompRegistration {...props}/>} />

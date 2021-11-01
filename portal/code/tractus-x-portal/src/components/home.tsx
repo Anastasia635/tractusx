@@ -1,3 +1,4 @@
+// Copyright (c) 2021 Microsoft
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,11 +31,12 @@ import MyData from './mydata';
 import { observable } from 'mobx';
 import NotificationCenter from './notificationcenter';
 import YellowPages from './yellowpages';
-import { NewSemanticModel } from './newsemanticmodel';
-import SemanticHub from './semantichub';
-import SemanticModelDetail from './semanticmodeldetail';
-import DigitalTwins from './digitaltwins';
-import Onboarding from './onboarding';
+import { NewSemanticModel } from './semantics/NewSemanticModel';
+import SemanticHub from './semantics/SemanticHub';
+import SemanticModelDetail from './semantics/SemanticModelDetail';
+import Aspect from './aspect';
+import DigitalTwins from './digitaltwins/digitaltwins';
+import { DigitalTwinDetail } from './digitaltwins/digitaltwindetail';
 
 const navStyles: Partial<INavStyles> = {
   root: {
@@ -176,6 +178,8 @@ const navLinkGroupsSemantics: INavLinkGroup[] = [
   }
 ];
 
+
+
 const noNav = ['digitaltwins', 'semanticmodel', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
 
 @observer
@@ -201,8 +205,8 @@ class Home extends React.Component<RouteComponentProps> {
 
   public render() {
     let groups = navLinkGroups;
-    if (window.location.href.includes('/datacatalog')) groups=navLinkGroupsData;
-    if (window.location.href.includes('/semantichub') || window.location.href.includes('/newsemanticmodel')) groups=navLinkGroupsSemantics;
+    if (window.location.href.includes('/datacatalog')) groups = navLinkGroupsData;
+    if (window.location.href.includes('/semantichub') || window.location.href.includes('/newsemanticmodel')) groups = navLinkGroupsSemantics;
   
     return (
       <div className='w100pc h100pc df fdc bgf5'>
@@ -226,7 +230,9 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/semantichub' component={(props) => <SemanticHub {...props} />} />
               <Route path='/home/newsemanticmodel' component={(props) => <NewSemanticModel {...props} />} />
               <Route path='/home/semanticmodel/:id' component={(props) => <SemanticModelDetail {...props} />} />
+              <Route path='/home/aspect/:connector' component={(props) => <Aspect {...props} />} />
               <Route path='/home/digitaltwins' component={(props) => <DigitalTwins {...props} />} />
+              <Route path='/home/digitaltwin/:id' component={(props) => <DigitalTwinDetail {...props} />} />
               <Route path='/home/developerhub' component={(props) => <DeveloperHub {...props} />} />
               <Route path='/home/appdetail/:id' component={(props) => <AppDetail {...props} />} />
               <Route path='/home/mydata' component={(props) => <MyData {...props} />} />
@@ -236,7 +242,6 @@ class Home extends React.Component<RouteComponentProps> {
               <Route path='/home/partners' component={(props) => <YellowPages {...props} />} />
               <Route path='/home/notification' component={(props) => <NotificationCenter {...props} />} />
               <Route path='/home/notimp' component={(props) => <NotImp {...props} />} />
-              <Route path='/home/onboarding' component={(props) => <Onboarding {...props} />} />
             </Switch>
           </div>
         </div>

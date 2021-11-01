@@ -192,9 +192,12 @@ iframe {border-style: none;}
 .h40 {height: 40px}
 .h15pc {height: 15%}
 .h30pc {height: 30%}
+.h35pc {height: 35%}
+.h40pc {height: 40%}
 .h50pc {height: 50%}
 .h60pc {height: 60%}
 .h70pc {height: 70%}
+.h80pc {height: 80%}
 .h90pc {height:90%}
 .h95pc {height:95%}
 .h1 {height: 1px;}
@@ -759,6 +762,7 @@ iframe {border-style: none;}
 .aifs {align-items: flex-start}
 .ain {align-items: normal !important}
 .ass {align-self: stretch;}
+.ase {align-self: end;}
 .jcc {justify-content: center;}
 .jcsb {justify-content: space-between;}
 .jcfe {justify-content: flex-end;}
@@ -795,6 +799,7 @@ iframe {border-style: none;}
 .fbasis {flex-basis: auto;}
 .ftablerow {display:flex; flex-direction: row; flex-grow: 0; flex-wrap: wrap; width: 100%;}
 .ftabletext {flex-grow:1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.fg1 {flex-grow: 1}
 .sep {border-right:1px solid white;}
 .sepdark {border-right:1px solid rgba(0, 0, 0, 0.05);}
 .borderleftgrey {border-left:1px solid #cccccc;}
@@ -940,4 +945,45 @@ mat-form-field .mat-input-placeholder {
 }
 .bgtextbox {
   background: #f7f8fa;
+}
+
+.scroll::-webkit-scrollbar {
+   width: 6px;
+}
+
+.scroll::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+   border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.recom_image{
+  background-image: url(/src/imagesapp-landing-Page.png);
+  /* background-position: -55px -16px; key*/
+  /* background-position: -256px -16px; */
+  /* background-position: -460px -16px; arraow */
+  /* background-position: -622px -16px;; */
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 60px;
+}
+
+.bgkey{
+  background-position: -30px -16px; 
+}
+
+.bgarrow{
+  background-position: -430px -16px;
+}
+
+.bgctenax{
+  background-position: -622px -16px;
+}
+
+.bgleaf{
+  background-position: -225px -16px;
 }

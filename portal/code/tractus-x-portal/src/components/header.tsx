@@ -39,22 +39,25 @@ class Header extends React.Component<IProp> {
   public async componentDidMount() {
     this.username = adalContext.getFullName();
     this.initials = adalContext.getInitials(this.username);
-    if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
-      AppState.state.isAdmin = true;
-    } else if (AppState.state.isAdmin === undefined) {
-      AppState.state.isAdmin = false;
-      try {
-        const groups = await adalContext.getGroups();
-        if (groups) {
-          for (const g of groups.value) {
-            const group = g as string;
-            if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
-              AppState.state.isAdmin = true;
-            }
-          }
-        }
-      } catch { }
-    }
+    AppState.state.isAdmin = true;
+
+    //Removed beacuse of login loop  
+    // if (adalContext.getDomain(adalContext.getUsername()) === 'Daimler') { // Hack for MS Graph
+    //   AppState.state.isAdmin = true;
+    // } else if (AppState.state.isAdmin === undefined) {
+    //   AppState.state.isAdmin = false;
+    //   try {
+    //     const groups = await adalContext.getGroups();
+    //     if (groups) {
+    //       for (const g of groups.value) {
+    //         const group = g as string;
+    //         if (group === 'ec5a8b75-4839-4ff1-b50d-f8159653d9f0' || group === '463512e5-968f-4b2d-8283-737be4a67182') {
+    //           AppState.state.isAdmin = true;
+    //         }
+    //       }
+    //     }
+    //   } catch { }
+    // }
   
     this.isAdmin = AppState.state.isAdmin;
   }
@@ -74,14 +77,16 @@ class Header extends React.Component<IProp> {
   }
 
   private onBoardingClick() {
-    this.props.history.push('/home/onboarding');
+    this.props.history.push('/invite');
   }
 
   
   public render() {
     const href = window.location.href;
     const path = href.substr(href.lastIndexOf('/') + 1);
-    const key = String(keys.indexOf(path));
+    let key = String(keys.indexOf(path));
+    if(href.includes('semanticmodel')) key = '4'; //just hack - nav code here needs to be cleaned up!
+    if(href.includes('digitaltwin')) key = '3'; //just hack - nav code here needs to be cleaned up!
     return (
       <div className='w100pc minh80 df aic bgwhite'>
         <div className='df cpointer' onClick={() => this.homeClick()}>
@@ -98,7 +103,7 @@ class Header extends React.Component<IProp> {
           })}
           <PivotItem key='search' className='ml20 mr20' headerText='' itemIcon='search' />
         </Pivot>}
-        <div onClick={() => this.onBoardingClick()}>Onboarding</div>
+        { this.isAdmin &&  <div className='cpointer' onClick={() => this.onBoardingClick()}>Invite Business Partner</div> }
         <div className='flex1' />
         <div className='bgblue fgwhite aic jcc df fs16 br50pc h40 w40 mr10' onClick={() => this.userClick()}>{this.initials}</div>
         <div className='df fdc mr50'>
