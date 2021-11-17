@@ -19,18 +19,21 @@ Prerequisites to follow this guide (tested with given versions on OS X terminal)
 
 ## Test database
 
-    export PG_HOST=cax-sb-dev-psql.postgres.database.azure.com
+    export PG_HOST=localhost
     export PG_PASS=Secret+Passw0rd
     caxdb() {
         DBNAME=$1
         shift
-        psql "host=$PG_HOST port=5432 user=psqladmin@$PG_HOST password=$PG_PASS sslmode=require dbname=$DBNAME" $@
+        psql "host=$PG_HOST port=5432 user=psqladmin password=$PG_PASS dbname=$DBNAME" $@
     }
+    
     caxdb membercompany -c "select version()"
 
 ## Create schema and insert data
 
-    cd networkservices/membershipcompany/Resources/ddl
+    psql "host=$PG_HOST port=5432 user=psqladmin password=$PG_PASS" -c "CREATE DATABASE membercompany"
+
+    cd coreservices/membershipcompany/Resources/ddl
     ./init-db.sh
     caxdb membercompany -c "select bpn, name from member_companies" 
 

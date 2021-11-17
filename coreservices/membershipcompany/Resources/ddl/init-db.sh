@@ -1,9 +1,9 @@
 #!/bin/bash
-PG_HOST=cax-sb-dev-psql.postgres.database.azure.com
+PG_HOST=localhost
 caxdb() {
     DBNAME=$1
     shift
-    psql "host=$PG_HOST port=5432 user=psqladmin@$PG_HOST password=$PG_PASS sslmode=require dbname=$DBNAME" $@
+    psql "host=$PG_HOST port=5432 user=psqladmin password=$PG_PASS dbname=$DBNAME" $@
 }
 
 caxdb membercompany -f drop-tables.sql

@@ -2,8 +2,8 @@ import Keycloak from "keycloak-js";
 
 //TODO: go to company selection if no url parameter for company is specified
 const searchParams = new URLSearchParams(window.location.search);
-const realm = searchParams.get('company') || 'Catena-X';
-const oneid = searchParams.get('oneId') || 'CAXABCDEFGHIJKLM';
+const realm = searchParams.get('company') || 'Evelyn';
+const oneid = searchParams.get('oneId') || 'CAXVPGQOJIGHFALZ';
 const user = searchParams.get('user') || '';
 
 const _kc = new Keycloak({
