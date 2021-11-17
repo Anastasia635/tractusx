@@ -1,17 +1,27 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
     <#if section = "header">
-        ${msg("doLogIn")}
+    <span></span>
+    <div id="logo-diplay"></div>
+    <h2 class="kc-text-account-title">Create Your</h2>
+    <h2 class="kc-text-account-title">Catena-X Account</h2>
+    <div id="kc-text-account">To create your account and join the Catena-X automotive network. Please enter the password you received via text-message</div>
     <#elseif section = "form">
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
         <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
             <#if realm.password>
                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <div class="${properties.kcFormGroupClass!}">
+                     <label>Company</label>
+                     <div class='kc-realm-name'>${realm.name}</div>
+                    </div>
+                    <div class="${properties.kcFormGroupClass!}">
+                     <label>Email</label>
+                     <div class='kc-realm-name'>dorran.s.grey@xamplcorp.com</div>
                         <#if usernameEditDisabled??>
-                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" />
+                            <input tabindex="1"  id="username" class="${properties.kcInputClass!} kc-form-hideborder" name="username" value="${(login.username!'')}" type="hidden" disabled placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" />
                         <#else>
-                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autocomplete="off" placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" />
+                            <input tabindex="1" id="username" class="${properties.kcInputClass!} kc-form-hideborder" name="username" value="admin"  type="hidden" autocomplete="off" placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" />
                         </#if>
                     </div>
 
@@ -47,9 +57,13 @@
 
                     <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                         <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                        <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                        <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Sign Up"/>
                     </div>
                 </form>
+                 <div id="kc-registration-footer">
+                <div>Already Have an account <a tabindex="6" href="#">Log In</a></div>
+                <div>Need <a tabindex="7" href="#">Help</a></div>
+            </div>
             </#if>
         </div>
         <#if realm.password && social.providers??>
@@ -63,10 +77,8 @@
         </#if>
     </div>
     <#elseif section = "info" >
-        <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration">
                 <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
             </div>
-        </#if>
     </#if>
 </@layout.registrationLayout>

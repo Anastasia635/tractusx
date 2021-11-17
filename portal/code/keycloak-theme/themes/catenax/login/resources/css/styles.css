@@ -14,124 +14,80 @@ body {
   color: var(--textColor);
   font-size: 18px;
 }
+#kc-header-wrapper{
+  padding: 0;
+}
 
 div.kc-logo-text {
-  background-image: url(https://catena-x.net/fileadmin/user_upload/logos/logo.svg);
+  background-image: none;
   background-repeat: no-repeat;
-  height: 63px;
-  width: 300px;
+  height: 40px;
+  width: 200px;
   margin: 0 auto;
 }
 
+#logo-diplay {
+  background-image: url(https://catena-x.net/fileadmin/user_upload/logos/logo.svg);
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 130px;
+}
 /* Login Page */
 
-.login-pf-page {
-  padding: 20px 0 0 50%;
+#kc-header { background: #fff;
 }
-
-/* Login Card */
-
-.login-pf-page .card-pf {
-  border: 5px solid var(--secColor);
-}
-
-/* Card Title */
-
-.login-pf-page .login-pf-header {
-  margin-bottom: 50px;
-}
-
-#kc-page-title {
-  font-size: 26px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* Login Form */
-
-.login-pf-page .form-group {
-  margin-bottom: 30px;
-}
-
-.form-control {
-  padding: 22px 30px;
-}
-
-.login-pf-page .form-control {
-  border: 5px solid var(--trdColor);
-  font-size: 18px;
-  color: var(--textColor);
-  height: auto;
-}
-
-.login-pf-page .form-control::placeholder {
-  font-style: normal;
-  color: var(--textOffColor);
-}
-
-/* Remember Me Toggle */
-
-#kc-form-options .checkbox {
-  font-size: 16px;
-  color: var(--textOffColor);
+.login-pf-page .login-pf-page-header{
   margin-bottom: 0;
 }
 
-#kc-form-options label {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  padding-left: 8px;
-}
-
-#kc-form-options .toggle {
-  border: 1px solid orange;
-  isolation: isolate;
-  position: relative;
-  height: 30px;
-  width: 60px;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-#rememberMe {
-  display: none;
-}
-
-#kc-form-options .dot {
-  height: 100%;
-  width: 200%;
-  background: var(--baseColor);
-  transform: translate3d(-75%, 0, 0);
-  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-}
-
-#rememberMe:checked ~ .dot {
-  transform: translate3d(25%, 0, 0);
-}
-
-#kc-form-options .label-text {
-  margin-left: 16px;
-}
-
-/* Reset Password Link */
-
-#kc-form-reset-psw a {
+#kc-text-account {
+  margin: 15px 0 15px 0;
   font-size: 16px;
-  color: var(--secColor);
-  padding-right: 8px;
+  line-height: 1.6;
+}
+
+.login-pf-header h2{
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 5px;
+}
+
+.login-pf-page .card-pf {
+  padding: 0 40px 0 40px;
 }
 
 #kc-form-buttons {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
-/* Login Button */
+#card-pf {
+  max-width: 400px;
+}
 
 #kc-login {
-  border: 5px solid var(--trdColor);
-  padding: 22px 30px;
-  font-size: 18px;
-  color: var(--secColor) !important;
-  background: var(--baseBtnColor) !important;
+  background-color: var(--baseDarkColor);
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #283b48 0%, #1e2b36 100%);
+  border-color: var(--baseDarkColor);
 }
+
+#kc-form-wrapper label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#kc-form-wrapper input {
+  border-radius: 5px ;
+}
+
+#kc-registration-footer {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 20px;
+}
+
+.kc-realm-name {
+  font-size: 13px;
+}
+
+
