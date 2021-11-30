@@ -9,10 +9,20 @@
   --trdColor: #b3cb2d;
 }
 
+@font-face {
+  font-family: 'libra franklin';
+  src: url(fonts/static/LibreFranklin-Regular.ttf);
+  font-weight: 400; 
+  font-style: normal;
+}
+
 body {
   background: var(--baseColor) !important;
   color: var(--textColor);
   font-size: 18px;
+  font-family: 'libra franklin';
+  font-weight: 400;
+  color:#000000;
 }
 #kc-header-wrapper{
   padding: 0;
@@ -29,8 +39,9 @@ div.kc-logo-text {
 #logo-diplay {
   background-image: url(https://catena-x.net/fileadmin/user_upload/logos/logo.svg);
   background-repeat: no-repeat;
-  height: 30px;
-  width: 130px;
+  height: 32px;
+  width: 138px;
+  margin-bottom: 20px;
 }
 /* Login Page */
 
@@ -41,15 +52,15 @@ div.kc-logo-text {
 }
 
 #kc-text-account {
-  margin: 15px 0 15px 0;
-  font-size: 16px;
+  margin: 24px 0 24px 0;
+  font-size: 17px;
   line-height: 1.6;
 }
 
 .login-pf-header h2{
   font-weight: bold;
-  font-size: 25px;
-  line-height: 5px;
+  font-size: 38px;
+  line-height: 15px;
 }
 
 .login-pf-page .card-pf {
@@ -65,29 +76,51 @@ div.kc-logo-text {
 }
 
 #kc-login {
-  background-color: var(--baseDarkColor);
-  border-radius: 5px;
-  background-image: linear-gradient(to bottom, #283b48 0%, #1e2b36 100%);
-  border-color: var(--baseDarkColor);
+  background: #000000;
+  border: 1px solid #000000;
 }
 
 #kc-form-wrapper label {
   font-size: 13px;
   font-weight: bold;
+  line-height: 16px;
 }
 
 #kc-form-wrapper input {
   border-radius: 5px ;
 }
+.form-control:hover {
+  border-color: none;
+}
+.form-control:focus {
+  border-color: none;
+}
+
+.login-pf body {
+  background-size: auto;
+  height: auto;
+}
 
 #kc-registration-footer {
   text-align: center;
-  font-size: 10px;
-  margin-top: 20px;
+  font-size: 17px;
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 32px;
+}
+
+.login-pf-page .login-pf-settings{
+  display: none;
 }
 
 .kc-realm-name {
-  font-size: 13px;
+  font-size: 17px;
+  color: #222222;
+  line-height: 20px;
+  margin-top: 10px;
 }
+
 
 
