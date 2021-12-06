@@ -44,7 +44,6 @@ jobs:
 
 
   publish:
-    if: ${{needs.environment.outputs.workspace}}
     environment: int
     runs-on: ubuntu-latest
     needs: environment
