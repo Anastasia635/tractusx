@@ -19,11 +19,7 @@ import { observer } from 'mobx-react';
 import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Home from './components/home';
-import Registrationoneid from './components/registrationoneid';
-import Registration from './components/registration';
 import Authinfo from './components/authinfo';
-import { AppState } from './stores/appstate';
-import Login from './components/login';
 
 const history = createBrowserHistory();
 
@@ -36,9 +32,6 @@ export default class App extends React.Component {
       initializeIcons();
       loadTheme({ palette: { themePrimary: '#BAC938', themeDarkAlt: '#E6AA1E' } })
     }
-
-    AppState.state = new AppState();
-
     App.first = false;
   }
 
@@ -48,11 +41,8 @@ export default class App extends React.Component {
       <Router history={history}>
         <Switch>
           <Redirect path='/' exact to='/home/onboarding' />
-          <Route path='/home' render={(props) => <ProtectedHome/>} />
-          <Route path='/registrationoneid' component={(props) => <Registrationoneid {...props}/>} />
-          <Route path='/register' component={(props) => <Registration {...props}/>} />
-          <Route path='/login' component={(props) => <Login {...props}/>} />
-          <Route path='/authinfo' component={(props) => <Authinfo/>} />
+          <Route path='/home' render={(props) => <ProtectedHome />} />
+          <Route path='/authinfo' component={(props) => <Authinfo />} />
         </Switch>
       </Router>
     );

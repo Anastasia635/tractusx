@@ -18,7 +18,6 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import UserService from '../helpers/UserService';
 import { Icon } from '@fluentui/react';
-import { AppState } from '../stores/appstate';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Logo from './logo';
 import { getOwnUserRoles } from '../helpers/utils';
@@ -47,9 +46,6 @@ class Header extends React.Component<IProp> {
     this.username = UserService.getUsername();
     this.initials = UserService.getInitials();
     this.userRoles = await getOwnUserRoles();
-    AppState.state.isAdmin = true;
-
-    this.isAdmin = AppState.state.isAdmin;
   }
 
 
