@@ -16,7 +16,7 @@ import  Ajv from "ajv";
 import jsonSchemaV4 from 'ajv/lib/refs/json-schema-draft-04.json';
 import Frame from 'react-frame-component';
 
-const ajv = new Ajv({schemaId: 'id'});
+const ajv = new Ajv({schemaId: 'auto'});
 ajv.addMetaSchema(jsonSchemaV4);
 
 export default class Aspect extends React.Component<any, any> {
@@ -461,7 +461,7 @@ export default class Aspect extends React.Component<any, any> {
     var urls=this.state.data.match(urlRegex)
     return(
       <div className='h100pc df fdc p44'>
-         <div className='fs16 bold fgblack ml10 mb4'>Debugging the Semantics-Enabled Data Flow over the <a href='/home/myconnectors' target='_blank'>IDS Connector Network</a> backed by a <a href={adapterUrl} target='_blank'>Sample Adapter</a> (<a href='https://github.com/catenax/tractusx/blob/main/semantics/src/main/resources/application.yml' target='_blank'>Configuration</a>).</div>
+         <div className='fs16 bold fgblack ml10 mb4'>Debugging the Semantics-Enabled Data Flow over the <a href='/home/myconnectors' target='_blank' rel="noreferrer">IDS Connector Network</a> backed by a <a href={adapterUrl} target='_blank' rel="noreferrer">Sample Adapter</a> (<a href='https://github.com/catenax/tractusx/blob/main/semantics/src/main/resources/application.yml' target='_blank' rel="noreferrer">Configuration</a>).</div>
          <div className='df jcsb w100pc'>
           {backlink}
           <br/>

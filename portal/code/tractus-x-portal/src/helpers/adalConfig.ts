@@ -55,7 +55,7 @@ class AdalContext {
   }
 
   get AuthContext() {
-    console.log(this.authContext)
+    process.env.NODE_ENV === 'development' && console.log(this.authContext);
     return this.authContext;
   }
 
@@ -73,7 +73,7 @@ class AdalContext {
       }
 
       const user = this.AuthContext.getCachedUser();
-      console.log(JSON.stringify(user))
+      process.env.NODE_ENV === 'development' &&  console.log(JSON.stringify(user));
       if (user) {
         this.authContext.config.extraQueryParameter = 'login_hint=' + (user.profile.upn || user.userName);
       }
@@ -127,7 +127,7 @@ class AdalContext {
   public getFullName(): string {
     let name = '';
     const user = this.authContext.getCachedUser();
-    console.log(JSON.stringify(user))
+    process.env.NODE_ENV === 'development' && console.log(JSON.stringify(user))
     if (user) {
       name = user.profile?.name || user.userName;
     }

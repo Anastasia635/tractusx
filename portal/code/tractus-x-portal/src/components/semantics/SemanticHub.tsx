@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Dropdown, Icon, IContextualMenuItem, IDropdownOption, IDropdownStyles, PrimaryButton, SearchBox } from '@fluentui/react';
+import { Dropdown, IContextualMenuItem, IDropdownOption, IDropdownStyles, PrimaryButton, SearchBox } from '@fluentui/react';
 import DescriptionList from '../lists/descriptionlist';
 import { getModels, Status } from './data';
 import ErrorMessage from '../ErrorMessage';
@@ -117,13 +117,13 @@ export default class SemanticHub extends React.Component<any, any>{
 
   setFilter(...params: { name: string, value: any }[]){
     let currentFilter = new URLSearchParams(this.state.filterParams);
-    params.map(param => {
+    params.forEach(param => {
       if(currentFilter.has(param.name)){
         currentFilter.set(param.name, param.value);
       } else {
         currentFilter.append(param.name, param.value);
       }
-      if(param.name != 'pageSize') this.filterActive = true;
+      if(param.name !== 'pageSize') this.filterActive = true;
     })
     this.setState({filterParams: currentFilter});
   }

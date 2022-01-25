@@ -65,7 +65,7 @@ export function NewSemanticModel(props) {
     { key: key, text: Status[key]}
   ));
   
-  const defaultOption=availableOptions.find( option => option.text==status).key;
+  const defaultOption=availableOptions.find( option => option.text === status).key;
 
   const dropdownStyles: Partial<IDropdownStyles> = {
     dropdown: { width: 150, marginRight: 20 },

@@ -13,13 +13,11 @@
 // limitations under the License.
 
 import * as React from 'react';
-import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { PrimaryButton, TextField } from '@fluentui/react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import Logo from './logo';
 import 'react-toastify/dist/ReactToastify.css';
-// import 'react-toastify/dist/ReactToastify.minimal.css';
 
 @observer
 export default class Login extends React.Component {

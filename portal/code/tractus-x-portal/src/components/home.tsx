@@ -19,7 +19,6 @@ import { Nav, INavStyles, INavLinkGroup, INavLink } from '@fluentui/react/lib/Na
 import { Redirect, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
 import AppStore from './appstore';
-import DataCatalog from './datacatalog';
 import DeveloperHub from './developerhub';
 import { ThemeProvider } from '@fluentui/react';
 import NotImp from './notimplemented';
@@ -126,59 +125,6 @@ const navLinkGroups2: INavLinkGroup[] = [
   }
 ];
 
-const navLinkGroupsData: INavLinkGroup[] = [
-  {
-    links: [
-      {
-        name: 'Browse & Search',
-        url: '/home/datacatalog',
-        key: 'key1',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Resources',
-        url: '/home/datacatalog',
-        key: 'key2',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Connectors',
-        url: '/home/datacatalog',
-        key: 'key3',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      }
-    ]
-  }
-];
-
-const navLinkGroupsSemantics: INavLinkGroup[] = [
-  {
-    links: [
-      {
-        name: 'Browse & Search',
-        url: '/home/semantichub',
-        key: 'key1',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      },
-      {
-        name: 'Create or Modify Model',
-        url: '/home/newsemanticmodel',
-        key: 'key2',
-        expandAriaLabel: 'Expand section',
-        collapseAriaLabel: 'Collapse section',
-        title: ''
-      }
-    ]
-  }
-];
 
 const noNav = ['digitaltwin', 'developerhub', 'appstore', 'notification', 'organization', 'partners', 'usermanagement'];
 
@@ -204,9 +150,7 @@ class Home extends React.Component<RouteComponentProps> {
   }
 
   public render() {
-    let groups = navLinkGroups;
-    if (window.location.href.includes('/datacatalog')) groups = navLinkGroupsData;
-    if (window.location.href.includes('/semantichub') || window.location.href.includes('/newsemanticmodel')) groups = navLinkGroupsSemantics;
+
 
     return (
       <div className='w100pc h100pc df fdc bgf5'>
@@ -214,8 +158,6 @@ class Home extends React.Component<RouteComponentProps> {
         <div className='df w100pc flex1'>
           <ThemeProvider theme={{ palette: { themePrimary: '#E6AA1E' } }}>
             <div className='df fdc w250 h100pc'>
-              {/* {this.hasLeftTopNavi() && <Nav className='bgwhite' selectedKey={Home.selectedKey1} ariaLabel='Navigation panel' styles={navStyles} groups={groups}
-                onLinkClick={(ev, item) => this.linkClick(ev, item)} />} */}
               <div className='flex1 bgwhite' />
               <li className='admin_button'>
                 <a className='' href="/home/admin">

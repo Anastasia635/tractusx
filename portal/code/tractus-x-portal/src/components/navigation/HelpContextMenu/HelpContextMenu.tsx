@@ -14,7 +14,7 @@ export default function ContextMenu(props){
 
   return(
     <div className="df fdc">
-      <a ref={linkRef} className='help-link' href="#" onClick={showContextMenu}>
+      <a ref={linkRef} className='help-link' href="/" onClick={showContextMenu}>
         <Icon className='help-link__icon' iconName='Help' />
         <span className="help-link__text">Help</span>
       </a>

@@ -23,7 +23,7 @@ import './SemanticModelDetail.css';
 
 const SemanticModelDetail = (props) => {
   const id = props.match.params.id;
-  const [apiBaseUrl, setApiBaseUrl] = useState<string | null>('https://swagger.io/docs/specification/api-host-and-base-path/')
+  const [apiBaseUrl,] = useState<string | null>('https://swagger.io/docs/specification/api-host-and-base-path/')
   const [model, setModel] = useState<any | null>(undefined);
   const [error, setError] = useState<any | null>(undefined);
   const [imageUrl, setImageUrl] = useState<string | null>(undefined);
@@ -44,7 +44,7 @@ const SemanticModelDetail = (props) => {
     setExamplePayloadUrl(getExamplePayloadUrl(id));
     setOpenApiUrl(getOpenApiUrl(id, apiBaseUrl));
     setFileUrl(getFileUrl(id));
-  }, [id]);
+  }, [id, apiBaseUrl]);
 
   const diagramOnLoad = () => {
     setIsImageLoading(false);
@@ -87,23 +87,23 @@ const SemanticModelDetail = (props) => {
         <p className="fs18">Aspect Model URN: {model.id}</p>
         <p className="fs18 mb20">Release Status: {model.status}</p>
         <div>
-          <img src={imageUrl} className="w100pc mb30" onLoad={diagramOnLoad}></img>
+          <img src={imageUrl} className="w100pc mb30" onLoad={diagramOnLoad} alt="Semantic modal detail page pic"></img>
           {isImageLoading && <Loading />}
         </div>
         <div className="df fwrap">
-          <a className='detail-link' href={fileUrl} target="_blank">
+          <a className='detail-link' href={fileUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='Installation' />
             <span>Download TTL</span>
           </a>
-          <a className='detail-link' href={documentationUrl} target="_blank">
+          <a className='detail-link' href={documentationUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='ReportDocument' />
             <span>Documentation</span>
           </a>
-          <a className='detail-link' href={jsonSchemaUrl} target="_blank">
+          <a className='detail-link' href={jsonSchemaUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='Code' />
             <span>Download JSON Schema</span>
           </a>
-          <a className='detail-link'href={openApiUrl} target="_blank">
+          <a className='detail-link'href={openApiUrl} target="_blank" rel="noreferrer">
             <Icon className='fgblack fs20 mt2 mr7' iconName='DataManagementSettings' />
             <span>Open API</span>
           </a>

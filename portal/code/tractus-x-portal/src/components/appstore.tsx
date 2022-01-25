@@ -14,7 +14,6 @@
 
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { PrimaryButton } from '@fluentui/react';
 import { AppState } from '../stores/appstate';
 import AppCard from './appcard';
 import { RouteComponentProps, withRouter } from 'react-router';
@@ -38,7 +37,7 @@ class AppStore extends React.Component<RouteComponentProps> {
           <span className='tac pt5 fgb5 fs10 ml50'>Test our FREE applications</span>
         </div> */}
         <div className='w100pc df fdc'>
-          <img src='../catenabackgroundcut.png' />
+          <img src='../catenabackgroundcut.png' alt="Catena-X Background" />
         </div>
         {AppState.state.categoriesnew.map((c, index) => (
           <div key={index} className='ml50 mr50 mb30 w100pc df fdc bgf5'>

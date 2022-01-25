@@ -73,7 +73,7 @@ class AppCard extends React.Component<IProp> {
       icon = a.companyName + '.png';
     }
 
-    console.log(this.props);
+    process.env.NODE_ENV === 'development' && console.log(this.props);
     let appCardClass = '';
     (this.props.app.background !== null && this.props.hideRating === false) ? appCardClass = 'h150 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov'
       : appCardClass = 'h150 m5 br4 bsAppStore bgwhite minw200 maxw200 cpointer hov';
@@ -84,7 +84,7 @@ class AppCard extends React.Component<IProp> {
         <div className={appCardClass} onClick={() => this.cardClick()}>
           <div className='w100pc df'>
             <div className='mt10 ml15'>
-              <img height='20' src={`../${icon}`} />
+              <img height='20' src={`../${icon}`} alt="appCard Icon" />
             </div>
             <div className='flex1'/>
               <IconButton className='mt5' iconProps={{ iconName: 'infoSolid', className: 'fs20' }} title='Show app description'

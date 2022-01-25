@@ -15,7 +15,6 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { SearchBox, Icon } from '@fluentui/react';
-import { Link } from 'react-router-dom';
 
 @observer
 export default class MyDataOverview extends React.Component {
